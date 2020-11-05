@@ -9,6 +9,19 @@ public class Cymbal {
     private float price;
     private String type;
 
+    public Cymbal(){
+
+    }
+
+    public Cymbal(int size, String brand, String name, String type, int id, float price, int qty){
+        this.size = size;
+        this.brand = brand;
+        this.name = name;
+        this.type = type;
+        this.id = id;
+        this.price = price;
+        this.qty = qty;
+    }
 
 
     public String getName() {

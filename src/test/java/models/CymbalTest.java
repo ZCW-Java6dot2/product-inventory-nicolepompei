@@ -7,6 +7,27 @@ import sun.security.x509.DeltaCRLIndicatorExtension;
 public class CymbalTest {
 
     @Test
+    public void constructorTest(){
+        int expectedSize = 22;
+        String expectedBrand = "Dream";
+        String expectedName = "Vintage Bliss";
+        String expectedType = "crash/ride";
+        int expectedQty = 4;
+        float expectedPrice = 325.00f;
+        int expectedId = 5;
+
+        Cymbal testCymbal = new Cymbal(expectedSize, expectedBrand, expectedName, expectedType, expectedId, expectedPrice, expectedQty);
+
+        Assert.assertEquals(expectedSize, testCymbal.getSize());
+        Assert.assertEquals(expectedBrand, testCymbal.getBrand());
+        Assert.assertEquals(expectedName, testCymbal.getName());
+        Assert.assertEquals(expectedType, testCymbal.getType());
+        Assert.assertEquals(expectedId, testCymbal.getId());
+        Assert.assertEquals(expectedPrice, testCymbal.getPrice(), 0.00000009);
+        Assert.assertEquals(expectedQty, testCymbal.getQty());
+    }
+
+    @Test
     public void setNameTest(){
         String expected = "Vintage Bliss";
 
@@ -28,7 +49,7 @@ public class CymbalTest {
 
     @Test
     public void setIdTest(){
-        int expected = 54321;
+        int expected = 5;
 
         Cymbal testCymbal = new Cymbal();
         testCymbal.setId(expected);
