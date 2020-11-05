@@ -6,6 +6,28 @@ import org.junit.Test;
 public class SnareDrumTest {
 
     @Test
+    public void constructorTest(){
+        int expectedDepth = 6;
+        String expectedName = "Patina Brass";
+        String expectedBrand = "Pork Pie";
+        String expectedShellType = "Brass";
+        int expectedQty = 3;
+        float expectedPrice = 329.99f;
+        int expectedId = 100;
+
+        SnareDrum testSnareDrum = new SnareDrum(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice, expectedId);
+
+        Assert.assertEquals(expectedDepth, testSnareDrum.getDepth());
+        Assert.assertEquals(expectedBrand, testSnareDrum.getBrand());
+        Assert.assertEquals(expectedName, testSnareDrum.getName());
+        Assert.assertEquals(expectedShellType, testSnareDrum.getShellType());
+        Assert.assertEquals(expectedQty, testSnareDrum.getQty());
+        Assert.assertEquals(expectedPrice, testSnareDrum.getPrice(), 0.000000009);
+        Assert.assertEquals(expectedId, testSnareDrum.getId());
+
+    }
+
+    @Test
     public void setNameTest(){
         String expected = "Patina Brass";
 
@@ -27,7 +49,7 @@ public class SnareDrumTest {
 
     @Test
     public void setIdTest(){
-        int expected = 54322;
+        int expected = 100;
 
         SnareDrum testSnareDrum = new SnareDrum();
         testSnareDrum.setId(expected);
@@ -73,5 +95,15 @@ public class SnareDrumTest {
         testSnareDrum.setShellType(expected);
 
         Assert.assertEquals(expected, testSnareDrum.getShellType());
+    }
+
+    @Test
+    public void setDepth(){
+        int expected = 6;
+
+        SnareDrum testSnareDrum = new SnareDrum();
+        testSnareDrum.setDepth(expected);
+
+        Assert.assertEquals(expected, testSnareDrum.getDepth());
     }
 }

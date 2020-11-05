@@ -9,6 +9,20 @@ public class SnareDrum {
     private float price;
     private String shellType;
 
+    public SnareDrum(){
+
+    }
+
+    public SnareDrum(int depth, String brand, String name, String shellType, int qty, float price, int id){
+        this.depth = depth;
+        this.name = name;
+        this.brand = brand;
+        this.shellType = shellType;
+        this.qty = qty;
+        this.price = price;
+        this.id = id;
+    }
+
     public void setName(String name) { this.name = name;
     }
 
