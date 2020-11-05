@@ -1,4 +1,4 @@
 package services;
 
-public class SnareDrumsServiceTest {
+public class SnareDrumServiceTest {
 }

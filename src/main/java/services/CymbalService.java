@@ -1,4 +1,4 @@
 package services;
 
-public class CymbalsService {
+public class CymbalService {
 }
