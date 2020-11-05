@@ -59,7 +59,7 @@ public class Cymbal {
     public void setPrice(float price) { this.price = price;
     }
 
-    public double getPrice() { return price;
+    public float getPrice() { return price;
     }
 
     public void setType(String type) { this.type = type;
