@@ -10,6 +10,13 @@ public class CymbalService {
 
     private ArrayList<Cymbal> inventory = new ArrayList<>();
 
+    public Cymbal create(int size, String brand, String name, String type, float price, int qty, int id) {
+        Cymbal createdCymbal = new Cymbal(size, brand, name, type, price, qty, id);
+
+        inventory.add(createdCymbal);
+        return createdCymbal;
+    }
+
     public Cymbal create(int size, String brand, String name, String type, float price, int qty){
 
         Cymbal createdCymbal = new Cymbal(size, brand, name, type, nextId++, price, qty);
@@ -37,10 +44,14 @@ public class CymbalService {
         return resultsArray;
    }
 
-  //  public boolean delete(int id){
-      //  boolean result = true;
-     //   return result;
+    public boolean delete(int id){
 
- //   }
+        inventory.remove(id - 1);
+
+        return true;
+
+   }
+
+
 
 }

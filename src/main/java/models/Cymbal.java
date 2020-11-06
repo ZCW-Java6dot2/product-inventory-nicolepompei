@@ -23,6 +23,16 @@ public class Cymbal {
         this.qty = qty;
     }
 
+    public Cymbal(int size, String brand, String name, String type, float price , int qty, int id) {
+        this.size = size;
+        this.brand = brand;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.qty = qty;
+        this.id = id;
+    }
+
 
     public String getName() {
     return name;
