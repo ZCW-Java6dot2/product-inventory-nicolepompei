@@ -25,5 +25,19 @@ public class SnareDrumService {
 
     }
 
+    public SnareDrum[] findAll(){
+
+        SnareDrum[] resultsArray = inventory.toArray(new SnareDrum[0]);
+        return resultsArray;
+    }
+
+    public boolean delete(int id){
+
+       SnareDrum results = inventory.remove(id - 1);
+
+        return true;
+
+    }
+
 
 }

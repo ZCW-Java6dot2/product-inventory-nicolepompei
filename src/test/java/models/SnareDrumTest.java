@@ -15,7 +15,8 @@ public class SnareDrumTest {
         float expectedPrice = 329.99f;
         int expectedId = 100;
 
-        SnareDrum testSnareDrum = new SnareDrum(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice, expectedId);
+        SnareDrum testSnareDrum = new SnareDrum(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+        SnareDrum testSnareDrum2 = new SnareDrum(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice, expectedId);
 
         Assert.assertEquals(expectedDepth, testSnareDrum.getDepth());
         Assert.assertEquals(expectedBrand, testSnareDrum.getBrand());

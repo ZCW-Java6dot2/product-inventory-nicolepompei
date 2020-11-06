@@ -19,10 +19,13 @@ public class SnareDrumServiceTest {
         String expectedShellType = "Brass";
         int expectedQty = 3;
         float expectedPrice = 329.99f;
+        int expectedId = 2;
 
         SnareDrumService snareDrumService = new SnareDrumService();
+        SnareDrumService snareDrumService1 = new SnareDrumService();
 
         SnareDrum testSnareDrum = snareDrumService.create(expectedDepth,expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+        SnareDrum testSnareDrum2 = snareDrumService1.create(expectedDepth,expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
 
 
         int actualDepth = testSnareDrum.getDepth();
@@ -32,6 +35,7 @@ public class SnareDrumServiceTest {
         int actualQty = testSnareDrum.getQty();
         float actualPrice = testSnareDrum.getPrice();
         int actualId = testSnareDrum.getId();
+
 
 
         Assert.assertEquals(expectedDepth, actualDepth);
@@ -65,19 +69,19 @@ public class SnareDrumServiceTest {
 
     @Test
     public void findAllTest(){
-        ArrayList<Cymbal> inventory = new ArrayList<>();
-        CymbalService dreamCymbals = new CymbalService();
-        Cymbal vintageBliss = dreamCymbals.create(22, "Dream", "Vintage Bliss", "Crash/Ride", 325.00f, 4);
-        Cymbal darkMatter = dreamCymbals.create(22, "Dream", "Dark Matter", "Ride", 399.00f, 2);
-        Cymbal bliss = dreamCymbals.create(24, "Dream", "Bliss", "Ride", 329.99f, 3);
+        ArrayList<SnareDrum> inventory = new ArrayList<>();
+        SnareDrumService snareDrums = new SnareDrumService();
+        SnareDrum patinaBrass = snareDrums.create(6, "Pork Pie", "Patina Brass", "Brass", 3, 329.00f);
+        SnareDrum acrolite = snareDrums.create(5, "Ludwig", "Acrolite", "Aluminum", 4, 429.00f);
+        SnareDrum supraphonic = snareDrums.create(5, "Ludwig", "Supraphonic", "Aluminum", 2, 549.00f);
 
-        inventory.add(vintageBliss);
-        inventory.add(darkMatter);
-        inventory.add(bliss);
+        inventory.add(patinaBrass);
+        inventory.add(acrolite);
+        inventory.add(supraphonic);
 
 
-        Cymbal[] actual = dreamCymbals.findAll();
-        Cymbal[] expected = inventory.toArray(new Cymbal[actual.length]);
+        SnareDrum[] actual = snareDrums.findAll();
+        SnareDrum[] expected = inventory.toArray(new SnareDrum[actual.length]);
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -86,10 +90,10 @@ public class SnareDrumServiceTest {
     public void delete(){
 
 
-        CymbalService testCymbal2 = new CymbalService();
-        Cymbal vintageBliss = testCymbal2.create(22, "Dream", "Vintage Bliss", "crash/ride", 325.00f, 4, 1);
+        SnareDrumService testSnareDrum2 = new SnareDrumService();
+        SnareDrum acrolite = testSnareDrum2.create(5, "Ludwig", "Acrolite", "Aluminum", 4, 4290.00f);
 
-        boolean actual = testCymbal2.delete(1);
+        boolean actual = testSnareDrum2.delete(1);
 
         boolean expected = true;
 

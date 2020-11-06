@@ -13,10 +13,20 @@ public class SnareDrum {
 
     }
 
-    public SnareDrum(int depth, String brand, String name, String shellType, int qty, float price, int id){
+    public SnareDrum(int depth, String brand, String name, String shellType, int qty, float price){
         this.depth = depth;
         this.name = name;
         this.brand = brand;
+        this.shellType = shellType;
+        this.qty = qty;
+        this.price = price;
+        //this.id = id;
+    }
+
+    public SnareDrum(int depth, String brand, String name, String shellType, int qty , float price, int id) {
+        this.depth = depth;
+        this.brand = brand;
+        this.name = name;
         this.shellType = shellType;
         this.qty = qty;
         this.price = price;
