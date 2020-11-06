@@ -1,5 +1,6 @@
 package services;
 
+import models.Cymbal;
 import models.SnareDrum;
 
 import java.util.ArrayList;
@@ -15,6 +16,13 @@ public class SnareDrumService {
         inventory.add(createdSnareDrum);
 
         return createdSnareDrum;
+    }
+
+    public SnareDrum find(int id){
+
+        SnareDrum results = inventory.get(id-1);
+        return results;
+
     }
 
 
