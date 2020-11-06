@@ -15,12 +15,11 @@ public class CymbalServiceTest {
         String expectedType = "crash/ride";
         float expectedPrice = 325.00f;
         int expectedQty = 4;
-        int expectedId = 1;
 
         CymbalService cymbalService = new CymbalService();
-        CymbalService cymbalService1 = new CymbalService();
+
         Cymbal testCymbal = cymbalService.create(expectedSize, expectedBrand, expectedName, expectedType, expectedPrice, expectedQty);
-        Cymbal testCymbal2 = cymbalService1.create(expectedSize, expectedBrand, expectedName, expectedType, expectedPrice, expectedQty, expectedId);
+
 
         int actualSize = testCymbal.getSize();
         String actualBrand = testCymbal.getBrand();
@@ -49,11 +48,11 @@ public class CymbalServiceTest {
         String expectedType = "crash/ride";
         float expectedPrice = 325.00f;
         int expectedQty = 4;
-        int expectedId = 1;
+
 
         CymbalService cymbalService = new CymbalService();
         Cymbal testCymbal = cymbalService.create(expectedSize, expectedBrand, expectedName, expectedType, expectedPrice, expectedQty);
-        Cymbal actualResults = cymbalService.find(expectedId);
+        Cymbal actualResults = cymbalService.find(1);
         Cymbal expectedResults = testCymbal;
 
         Assertions.assertEquals(expectedResults, actualResults);
@@ -83,7 +82,7 @@ public class CymbalServiceTest {
 
 
         CymbalService testCymbal2 = new CymbalService();
-        Cymbal vintageBliss = testCymbal2.create(22, "Dream", "Vintage Bliss", "crash/ride", 325.00f, 4, 1);
+        Cymbal vintageBliss = testCymbal2.create(22, "Dream", "Vintage Bliss", "crash/ride", 325.00f, 4);
 
         boolean actual = testCymbal2.delete(1);
 
