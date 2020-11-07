@@ -8,30 +8,30 @@ import java.util.Scanner;
 
 public class Console {
 
-    public static void print(String output, Object... args){
+    public static void print(String output, Object... args) {
         System.out.printf(output, args);
     }
 
-    public static void println(String output, Object...args){
+    public static void println(String output, Object... args) {
 
     }
 
 
-    public String getStringInput(String prompt){
+    public String getStringInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         println(prompt);
         String userInput = scanner.nextLine();
         return userInput;
     }
 
-    public static Integer getIntegerInput(String prompt){
+    public static Integer getIntegerInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         println(String.valueOf(prompt));
         Integer userInput = Integer.valueOf(scanner.nextLine());
         return userInput;
     }
 
-    public Float getFloatInput(String prompt){
+    public Float getFloatInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
         println(String.valueOf(prompt));
         Float userInput = Float.valueOf(scanner.next());
@@ -39,13 +39,13 @@ public class Console {
     }
 
     //welcome
-    public static void printWelcome(){
+    public static void printWelcome() {
         System.out.println("" +
-                        "**************************************************" +
-                        "***           Welcome and Bienvenue            ***" +
-                        "***                    to                      ***" +
-                        "***          ZipCo Inventory Manager           ***" +
-                        "**************************************************");
+                "**************************************************" +
+                "***           Welcome and Bienvenue            ***" +
+                "***                    to                      ***" +
+                "***          ZipCo Inventory Manager           ***" +
+                "**************************************************");
 
     }
 
@@ -58,22 +58,21 @@ public class Console {
         Not sure if I need these yet
   public Integer getDisplayMenuInput(){}
     public Integer getProductMenuInput(){}
-    public Integer getSnareMenuInput(){}
-    public Integer getCymbalMenuInput(){}
+
 
 
    */
 
-    public void mainMenu(){
+    public void mainMenu() {
         Scanner scannerMain = new Scanner(System.in);
         String MainMenuDisplay = ("Main Menu: \n Create New Product: 1\n Read All Products: 2\n Update Product: 3\n Delete Product: 4\n Get Report: 5\n Exit: 6");
         Integer i = Integer.valueOf(scannerMain.next());
 
         System.out.println(MainMenuDisplay);
-        switch(i){
+        switch (i) {
             case 1:
-               createProductMenu();
-               break;
+                createProductMenu();
+                break;
             case 2:
                 findAllProductMenu();
                 break;
@@ -88,10 +87,10 @@ public class Console {
                 break;
             case 6:
                 exit();
-            break;
+                break;
             default:
                 Console.println("Invalid input. Please try that again.");
-            break;
+                break;
         }
 
     }
@@ -116,35 +115,37 @@ public class Console {
                 break;
             case 4:
                 exit();
-            break;
+                break;
             default:
                 Console.println("Invalid input. Please try that again.");
                 break;
         }
     }
+
     //creates and adds snare obj to inventory
-    public void createSnareMenu(){
+    public void createSnareMenu() {
         SnareDrumService newSnareDrum = new SnareDrumService();
 
-      Scanner scanner = new Scanner(System.in);
-      System.out.println("Enter snare drum depth:");
-      int depth = Integer.valueOf(scanner.next());
-      System.out.println("Enter snare drum brand:");
-      String brand = String.valueOf(scanner.next());
-      System.out.println("Enter snare drum name:");
-      String name = String.valueOf(scanner.next());
-      System.out.println("Enter snare drum shell type:");
-      String shellType = String.valueOf(scanner.next());
-      System.out.println("Enter snare drum quantity:");
-      int qty = Integer.valueOf(scanner.next());
-      System.out.println("Enter snare drum price:");
-      float price = Integer.valueOf(scanner.next());
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter snare drum depth:");
+        int depth = Integer.valueOf(scanner.next());
+        System.out.println("Enter snare drum brand:");
+        String brand = String.valueOf(scanner.next());
+        System.out.println("Enter snare drum name:");
+        String name = String.valueOf(scanner.next());
+        System.out.println("Enter snare drum shell type:");
+        String shellType = String.valueOf(scanner.next());
+        System.out.println("Enter snare drum quantity:");
+        int qty = Integer.valueOf(scanner.next());
+        System.out.println("Enter snare drum price:");
+        float price = Integer.valueOf(scanner.next());
 
-      newSnareDrum.create(depth, brand, name, shellType, qty, price);
+        newSnareDrum.create(depth, brand, name, shellType, qty, price);
 
     }
+
     //creates and adds cymbal obj to inventory
-    public void createCymbalMenu(){
+    public void createCymbalMenu() {
         CymbalService newCymbal = new CymbalService();
 
         Scanner scanner = new Scanner(System.in);
@@ -165,7 +166,7 @@ public class Console {
     }
 
     //displays all products (needs to call 2 methods -- each find all in service classes)
-    public void findAllProductMenu(){
+    public void findAllProductMenu() {
 
         Scanner scanner = new Scanner(System.in);
         String findAllMenu = ("Choose an option:\n View Complete Inventory: 1\n Main Menu: 2\n Exit: 3");
@@ -173,7 +174,7 @@ public class Console {
 
         Integer i = Integer.valueOf(scanner.next());
 
-        switch(i){
+        switch (i) {
             case 1:
                 CymbalService allCymbals = new CymbalService();
                 System.out.println(allCymbals.findAll());
@@ -181,14 +182,15 @@ public class Console {
                 SnareDrumService allSnareDrums = new SnareDrumService();
                 System.out.println(allSnareDrums.findAll());
 
-            break;
+                break;
             case 2:
                 returnToMain();
-            break;
+                break;
             case 3:
                 exit();
-            break;
-            default: Console.println("Invalid input. Please try that again.");
+                break;
+            default:
+                Console.println("Invalid input. Please try that again.");
                 break;
 
         }
@@ -196,25 +198,113 @@ public class Console {
     }
 
     //switch statement through models and then users sub switch statements to set the new values
-    public void updateProductMenu(){}
-    
-    //asks if which product you want to delete and takes in id number
-    public void deleteProductMenu(){}
+    public void updateProductMenu() {
+        Scanner scanner = new Scanner(System.in);
+        String enterID = ("Choose the product you'd like to update:\n Snare Drum: 1\n Cymbal: 2\n Return to Main Menu: 3\n Exit: 4\n");
+        System.out.println(enterID);
+        Integer i = Integer.valueOf(scanner.next());
 
-    //not sure what this does yet
-    public void getReportMenu(){}
+        switch (i) {
+            case 1:
+                getSnareIdInput();
+                break;
+            case 2:
+                getCymbalIdInput();
+                break;
+            case 3:
+                returnToMain();
+                break;
+            case 4:
+                exit();
+                break;
+            default:
+                Console.println("Invalid input. Please try that again.");
+                break;
+        }
 
-    //returns to main menu
-    public void returnToMain(){
-        mainMenu();
+
     }
 
-    //exit program
-    public void exit(){
-        System.exit(0);
+    public Integer getSnareIdInput() {
+        Scanner scanner = new Scanner(System.in);
+        SnareDrumService findSnare = new SnareDrumService();
+
+        String enterID = ("Please enter the ID number for the snare drum you'd like to update.");
+        System.out.println(enterID);
+        Integer i = Integer.valueOf(scanner.next());
+        findSnare.find(i);
+
+        System.out.println(snareUpdateMenu());
+
     }
 
+    public Integer snareUpdateMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        String fieldToUpdate = ("Choose the field you'd like to update:\n Depth: 1\n Brand: 2\n Name: 3\n Shell Type: 4\n Quantity: 5\n Price: 6\n Return to Product Menu: 7\n Return to Main Menu: 8\n Exit: 9");
+        System.out.println(fieldToUpdate);
+        Integer i = Integer.valueOf(scanner.next());
+
+        switch (i) {
+            case 1:
+
+                System.out.println("Please enter the depth:");
+                Integer newDepth = Integer.valueOf(scanner.next());
+
+                SnareDrum updatedSnareDrum = new SnareDrum();
+                updatedSnareDrum.setDepth(newDepth);
+                System.out.println(updatedSnareDrum);
 
 
+                switch
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 6:
+                break;
+            case 7:
+                updateProductMenu();
+                break;
+            case 8:
+                returnToMain();
+                break;
+            case 9:
+                exit();
+                break;
+            default:
+                Console.println("Invalid input. Please try that again.");
+                break;
+        }
+    }
 
-}
+        public Integer cymbalUpdateMenu () {
+        }
+
+        public Integer getCymbalIdInput () {
+        }
+
+        //asks if which product you want to delete and takes in id number
+        public void deleteProductMenu () {
+        }
+
+        //not sure what this does yet
+        public void getReportMenu () {
+        }
+
+        //returns to main menu
+        public void returnToMain () {
+            mainMenu();
+        }
+
+        //exit program
+        public void exit () {
+            System.exit(0);
+        }
+
+
+    }
+
