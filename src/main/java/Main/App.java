@@ -20,5 +20,6 @@ public class App {
         //call methods to take user input and interface with services
 
         Console.printWelcome();
+        Console.mainMenu();
     }
 }
