@@ -255,8 +255,23 @@ public class Console {
                 updatedSnareDrum.setDepth(newDepth);
                 System.out.println(updatedSnareDrum);
 
+                String snareMenuOptions = ("What would you like to do next:\n Add another snare update: 1\n Return to menu to update more products: 2\n Return to Main Menu: 3\n Exit: 4");
+                System.out.println(snareMenuOptions);
 
-                switch
+                Integer j = Integer.valueOf(scanner.next());
+
+                switch (j){
+                    case 1: snareUpdateMenu();
+                    break;
+                    case 2: updateProductMenu();
+                    break;
+                    case 3: mainMenu();
+                    break;
+                    case 4: exit();
+                    break;
+                    default: Console.println("Invalid input. Please try that again.");
+                    break;
+                }
                 break;
             case 2:
                 break;
