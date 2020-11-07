@@ -245,17 +245,19 @@ public class Console {
         System.out.println(fieldToUpdate);
         Integer i = Integer.valueOf(scanner.next());
 
+        String snareMenuOptions = ("What would you like to do next:\n Add another snare update: 1\n Return to menu to update more products: 2\n Return to Main Menu: 3\n Exit: 4");
+
         switch (i) {
             case 1:
 
                 System.out.println("Please enter the depth:");
                 Integer newDepth = Integer.valueOf(scanner.next());
 
-                SnareDrum updatedSnareDrum = new SnareDrum();
-                updatedSnareDrum.setDepth(newDepth);
-                System.out.println(updatedSnareDrum);
+                SnareDrum updatedDepthSnareDrum = new SnareDrum();
+                updatedDepthSnareDrum.setDepth(newDepth);
+                System.out.println(updatedDepthSnareDrum);
 
-                String snareMenuOptions = ("What would you like to do next:\n Add another snare update: 1\n Return to menu to update more products: 2\n Return to Main Menu: 3\n Exit: 4");
+
                 System.out.println(snareMenuOptions);
 
                 Integer j = Integer.valueOf(scanner.next());
@@ -274,10 +276,84 @@ public class Console {
                 }
                 break;
             case 2:
+                System.out.println("Please enter the brand:");
+                String newBrand = String.valueOf(scanner.next());
+
+                SnareDrum updatedBrandSnareDrum = new SnareDrum();
+                updatedBrandSnareDrum.setBrand(newBrand);
+                System.out.println(updatedBrandSnareDrum);
+
+
+                System.out.println(snareMenuOptions);
+
+                Integer k = Integer.valueOf(scanner.next());
+
+                switch (k){
+                    case 1: snareUpdateMenu();
+                        break;
+                    case 2: updateProductMenu();
+                        break;
+                    case 3: mainMenu();
+                        break;
+                    case 4: exit();
+                        break;
+                    default: Console.println("Invalid input. Please try that again.");
+                        break;
+                }
+
                 break;
             case 3:
+                System.out.println("Please enter the name:");
+                String newName = String.valueOf(scanner.next());
+
+                SnareDrum updatedNameSnareDrum = new SnareDrum();
+                updatedNameSnareDrum.setName(newName);
+                System.out.println(updatedNameSnareDrum);
+
+
+                System.out.println(snareMenuOptions);
+
+                Integer l = Integer.valueOf(scanner.next());
+
+                switch (l){
+                    case 1: snareUpdateMenu();
+                    break;
+                    case 2: updateProductMenu();
+                    break;
+                    case 3: mainMenu();
+                    break;
+                    case 4: exit();
+                    break;
+                    default: Console.println("Invalid input. Please try that again.");
+                    break;
+                }
+
                 break;
             case 4:
+                System.out.println("Please enter the shell type:");
+                String newShellType = String.valueOf(scanner.next());
+
+                SnareDrum updatedShellTypeSnareDrum = new SnareDrum();
+                updatedShellTypeSnareDrum.setName(newShellType);
+                System.out.println(updatedShellTypeSnareDrum);
+
+                System.out.println(snareMenuOptions);
+
+                Integer m = Integer.valueOf(scanner.next());
+
+                switch (m){
+                    case 1: snareUpdateMenu();
+                        break;
+                    case 2: updateProductMenu();
+                        break;
+                    case 3: mainMenu();
+                        break;
+                    case 4: exit();
+                        break;
+                    default: Console.println("Invalid input. Please try that again.");
+                        break;
+                }
+                
                 break;
             case 6:
                 break;
