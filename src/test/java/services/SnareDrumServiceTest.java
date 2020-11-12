@@ -1,6 +1,5 @@
 package services;
 
-import models.Cymbal;
 import models.SnareDrum;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,10 +21,10 @@ public class SnareDrumServiceTest {
         int expectedId = 2;
 
         SnareDrumService snareDrumService = new SnareDrumService();
-        SnareDrumService snareDrumService1 = new SnareDrumService();
+       // SnareDrumService snareDrumService1 = new SnareDrumService();
 
         SnareDrum testSnareDrum = snareDrumService.create(expectedDepth,expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
-        SnareDrum testSnareDrum2 = snareDrumService1.create(expectedDepth,expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+       // SnareDrum testSnareDrum2 = snareDrumService1.create(expectedDepth,expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
 
 
         int actualDepth = testSnareDrum.getDepth();
@@ -57,14 +56,19 @@ public class SnareDrumServiceTest {
         String expectedShellType = "Brass";
         int expectedQty = 3;
         float expectedPrice = 329.99f;
-        int expectedId = 1;
+       // int expectedId = 1;
 
-        SnareDrumService snareDrumService = new SnareDrumService();
-        SnareDrum testSnareDrum = snareDrumService.create(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
-        SnareDrum actualResults = snareDrumService.find(expectedId);
-        SnareDrum expectedResults = testSnareDrum;
+        SnareDrum expected = new SnareDrum();
+        SnareDrumService.create(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+        //SnareDrum testSnareDrum = snareDrumService.create(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+        //SnareDrum actualResults = snareDrumService.find(expectedId);
+       // SnareDrum expectedResults = testSnareDrum;
+        int id = expected.getId();
 
-        Assertions.assertEquals(expectedResults, actualResults);
+        SnareDrumService.find(id);
+        SnareDrum actual = SnareDrumService.find(id);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -80,7 +84,7 @@ public class SnareDrumServiceTest {
         inventory.add(supraphonic);
 
 
-        SnareDrum[] actual = snareDrums.findAll();
+        SnareDrum[] actual = SnareDrumService.findAll().toArray(new SnareDrum[0]);
         SnareDrum[] expected = inventory.toArray(new SnareDrum[actual.length]);
 
         Assertions.assertArrayEquals(expected, actual);
@@ -89,15 +93,22 @@ public class SnareDrumServiceTest {
     @Test
     public void delete(){
 
+        int expectedDepth = 5;
+        String expectedBrand = "Ludwig";
+        String expectedName = "Acrolite";
+        String expectedShellType = "Aluminum";
+        int expectedQty = 4;
+        Float expectedPrice = 429.00f;
 
-        SnareDrumService testSnareDrum2 = new SnareDrumService();
-        SnareDrum acrolite = testSnareDrum2.create(5, "Ludwig", "Acrolite", "Aluminum", 4, 4290.00f);
 
-        boolean actual = testSnareDrum2.delete(1);
+        SnareDrum snare = new SnareDrum();
+        SnareDrumService.create(expectedDepth, expectedBrand, expectedName, expectedShellType, expectedQty, expectedPrice);
+        int id  = snare.getId();
 
-        boolean expected = true;
+        SnareDrumService.delete(id);
+        SnareDrum retrievedSnareDrum =  SnareDrumService.find(id);
 
-        Assertions.assertEquals(expected, actual);
+        Assert.assertNull(retrievedSnareDrum);
 
     }
 }

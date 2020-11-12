@@ -91,6 +91,7 @@ public class Console {
                 break;
             default:
                 Console.println("Invalid input. Please try that again.");
+                System.out.println(MainMenuDisplay);
                 break;
         }
 
@@ -306,6 +307,7 @@ public class Console {
                     case 4: exit();
                     break;
                     default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(snareMenuOptions);
                     break;
                 }
                 break;
@@ -332,6 +334,7 @@ public class Console {
                     case 4: exit();
                         break;
                     default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(snareMenuOptions);
                         break;
                 }
 
@@ -359,6 +362,7 @@ public class Console {
                     case 4: exit();
                     break;
                     default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(snareMenuOptions);
                     break;
                 }
 
@@ -385,6 +389,7 @@ public class Console {
                     case 4: exit();
                         break;
                     default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(snareMenuOptions);
                         break;
                 }
 
@@ -414,6 +419,7 @@ public class Console {
                     case 4: exit();
                         break;
                     default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(snareMenuOptions);
                         break;
                 }
                 break;
@@ -440,6 +446,7 @@ public class Console {
                     case 4: exit();
                         break;
                     default: Console.println("Invalid input. Please try that again.");
+                    System.out.println(snareMenuOptions);
                         break;
                 }
                 break;
@@ -496,6 +503,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                            System.out.println(cymbalMenuOptions);
                             break;
                     }
                     break;
@@ -522,6 +530,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                            System.out.println(cymbalMenuOptions);
                             break;
                     }
 
@@ -549,6 +558,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                            System.out.println(cymbalMenuOptions);
                             break;
                     }
 
@@ -575,6 +585,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                            System.out.println(cymbalMenuOptions);
                             break;
                     }
 
@@ -604,6 +615,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                            System.out.println(cymbalMenuOptions);
                             break;
                     }
                     break;
@@ -630,6 +642,7 @@ public class Console {
                         case 4: exit();
                             break;
                         default: Console.println("Invalid input. Please try that again.");
+                        System.out.println(cymbalMenuOptions);
                             break;
                     }
                     break;
@@ -644,6 +657,7 @@ public class Console {
                     break;
                 default:
                     Console.println("Invalid input. Please try that again.");
+                    System.out.println(cymbalMenuOptions);
                     break;
             }
 
@@ -674,8 +688,43 @@ public class Console {
 
         //asks if which product you want to delete and takes in id number
         public static void deleteProductMenu() {
+        Scanner scanner = new Scanner(System.in);
 
-            mainMenu();
+        String deleteMenu = "What product type would you like to delete:\n Snare Drum: 1\n Cymbal: 2\n Main Menu:3\n Exit: 4\n";
+        System.out.println(deleteMenu);
+
+        Integer s = Integer.valueOf(scanner.next());
+
+        switch(s){
+            case 1:
+                System.out.println("Please enter the ID for the snare drum you would like to delete:");
+                Integer idSnare = Integer.valueOf(scanner.next());
+                SnareDrumService deleteSnare = new SnareDrumService();
+                deleteSnare.delete(idSnare);
+                mainMenu();
+            break;
+            case 2:
+                System.out.println("Please enter the ID for the cymbal you would like to delete:");
+                Integer idCymbal = Integer.valueOf(scanner.next());
+
+                CymbalService deleteCymbal = new CymbalService();
+                deleteCymbal.delete(idCymbal);
+                mainMenu();
+
+            break;
+            case 3:
+                mainMenu();
+            break;
+            case 4:
+                exit();
+            break;
+            default:
+                Console.println("Invalid input. Please try that again.");
+                System.out.println(deleteMenu);
+            break;
+        }
+
+           // mainMenu();
         }
 
         //not sure what this does yet
